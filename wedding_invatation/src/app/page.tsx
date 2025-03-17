@@ -1,22 +1,26 @@
 import Header from "./components/Header";
-import { Section } from "./components/Section";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { Gallery } from "./components/Gallery";
+import { RSVP } from "./components/RSVP";
+import { Contact } from "./components/Contact";
+import { Story } from "./components/Story";
+import { Event } from "./components/Event";
+import { BridalParty } from "./components/BridalParty";
 
-const sections = [
-  { id: "home", title: "Trang Chủ" },
-  { id: "about", title: "Giới Thiệu" },
-  { id: "gallery", title: "Thư Viện" },
-  { id: "rsvp", title: "Lời Mời" },
-  { id: "contact", title: "Liên Hệ" },
-];
-
-export default function Home() {
+export default function MainPage() {
   return (
     <div>
       <Header />
-      <main className="pt-20">
-        {sections.map((section) => (
-          <Section key={section.id} id={section.id} title={section.title} />
-        ))}
+      <main className="">
+        <Home />
+        <About />
+        <Story/>
+        <Event/>
+        <BridalParty/>
+        <Gallery />
+        <RSVP />
+        <Contact />
       </main>
     </div>
   );
