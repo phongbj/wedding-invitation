@@ -61,26 +61,48 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${!isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}>
-      <nav className="flex justify-center space-x-10 p-4">
-        <div className="w-48 flex gap-x-2 justify-center items-center">
-            <span className={`${fleurDeLeah.className} text-5xl`}>P</span>
-            <Heart className="text-red-500 w-10 h-10" fill="red" />
-            <span className={`${fleurDeLeah.className} text-5xl`}>O</span>
-        </div>
+<header
+  className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    !isScrolled ? "bg-white/90 shadow-md text-black" : "bg-white/30 text-white"
+  }`}
+>
+  <nav className="flex justify-center space-x-10 p-4">
+    <div className="w-48 flex gap-x-2 justify-center items-center">
+      <span
+        className={`${fleurDeLeah.className} text-5xl`}
+        style={{ textShadow: "2px 2px 10px rgba(0,0,0,0.5)" }}
+      >
+        P
+      </span>
+      <Heart className="text-red-500 w-10 h-10" fill="red" />
+      <span
+        className={`${fleurDeLeah.className} text-5xl`}
+        style={{ textShadow: "2px 2px 10px rgba(0,0,0,0.5)" }}
+      >
+        T
+      </span>
+    </div>
 
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            onClick={() => handleClick(section.id)}
-            className={`${meaCulpa.className} text-4xl cursor-pointer transition-colors duration-300 ${
-              activeSection === section.id ? "text-blue-600" : "text-gray-600"
-            }`}
-          >
-            {section.title}
-          </button>
-        ))}
-      </nav>
-    </header>
+    {sections.map((section) => (
+      <button
+        key={section.id}
+        onClick={() => handleClick(section.id)}
+        className={`${meaCulpa.className} text-4xl cursor-pointer transition-colors duration-300 hover:text-red-600 ${
+          activeSection === section.id ? "!text-red-600" : ""
+        }`}
+        style={{
+          color: !isScrolled ? "black" : "white",
+          textShadow:
+            activeSection !== section.id
+              ? "2px 2px 10px rgba(0,0,0,0.5)"
+              : "1px 1px 0.5px rgba(255, 255, 255, 0.8)",
+        }}
+      >
+        {section.title}
+      </button>
+    ))}
+  </nav>
+</header>
+
   );
 }
